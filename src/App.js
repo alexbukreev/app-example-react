@@ -6,11 +6,11 @@ function App() {
   const [serverData, setServerData] = useState(null);
 
   useEffect(() => {
-    // Пример запроса на сервер для проверки Directory Traversal
-    fetch('/../../etc/passwd')
-      .then(response => response.text())
+    // Запрос к доступному статическому файлу App.css
+    fetch('/static/css/main.f855e6bc.css') // Путь может отличаться в зависимости от сборки. Проверяем этот путь.
+      .then(response => response.text()) // Преобразуем ответ в текст
       .then(data => {
-        setServerData(data);  // Сохранение ответа сервера
+        setServerData(data); // Сохраняем данные с сервера в состояние
       })
       .catch(err => console.error('Error:', err));
   }, []);
@@ -31,7 +31,7 @@ function App() {
           Learn React
         </a>
         {/* Отображение ответа сервера */}
-        {serverData && <pre>{serverData}</pre>}
+        {serverData && <pre>{serverData}</pre>} {/* Если данные получены, они будут отображены здесь */}
       </header>
     </div>
   );
