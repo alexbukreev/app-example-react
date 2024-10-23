@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     // Пример запроса на сервер для проверки Directory Traversal
-    fetch('../static/css/main.f855e6bc.css')
+    fetch('/static/css/main.f855e6bc_.css')
       .then(response => response.text())
       .then(data => {
         setServerData(data);  // Сохранение ответа сервера
