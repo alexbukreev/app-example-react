@@ -1,20 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect, useState } from 'react';
 
 function App() {
-  const [serverData, setServerData] = useState(null);
-
-  useEffect(() => {
-    // Пример запроса на сервер для проверки Directory Traversal
-    fetch('/static/css/main.f855e6bc_.css')
-      .then(response => response.text())
-      .then(data => {
-        setServerData(data);  // Сохранение ответа сервера
-      })
-      .catch(err => console.error('Error:', err));
-  }, []);
-
   return (
     <div className="App">
       <header className="App-header">
@@ -30,8 +17,6 @@ function App() {
         >
           Learn React
         </a>
-        {/* Отображение ответа сервера */}
-        {serverData && <pre>{serverData}</pre>}
       </header>
     </div>
   );
